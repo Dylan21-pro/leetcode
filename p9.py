@@ -9,6 +9,6 @@ class Solution:
             x //= 10
 
         if self == value:
-            return True
+            return True 
         else:
             return False
