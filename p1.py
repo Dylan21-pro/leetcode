@@ -1,9 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         dictionary = {}
-        for count in range(len(nums)):
-            sub = target - nums[count]
-            if sub not in dictionary:
-                dictionary[nums[count]] = count
+        for index in range(len(nums)):
+            sub = target - nums[index]
+            if sub in dictionary:
+                return [index, dictionary[sub]]
             else:
-                return count, dictionary[sub]
+                dictionary[nums[index]] = index
+
+        
