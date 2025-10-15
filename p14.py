@@ -1,24 +1,17 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        value = strs[0]
-        if len(strs) == 0:
+        if not strs:
             return ""
-        elif len(strs) == 1:
-            return value
-        else:
-            for ct in range(len(strs)):
-                if strs[ct] == "" or value == "":
-                    return ""
-                else:
-                    while not strs[ct].startswith(value):
-                        print(value)
-                        value = value[:len(value)-1]
-                
-            return value
 
+        common = strs[0]
 
+        for next_string in strs[1:]:
+            count = 0
+            while count < len(common) and count < len(next_string) and common[count] == next_string[count]:
+                count += 1
+            common = common[:count]
+            
+            if not common:
+                return ""
 
-
-
-
-
+        return common
